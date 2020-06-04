@@ -28,7 +28,7 @@
 
 <script>
   import Overlay from 'ol/Overlay';
-  import BqbrForm from "../common/bqbrForm";
+  import BqbrForm from "../common/bqbrForm"; //引用组件目录的写法。插件位置24行代码。
   import {getBqbrmx} from "../../api/sjlr";
   export default {
     name: "popover",

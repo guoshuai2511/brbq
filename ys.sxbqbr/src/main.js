@@ -9,9 +9,11 @@ import echarts from 'echarts';
 Vue.prototype.$echarts = echarts;
 import 'element-ui/lib/theme-chalk/index.css';
 import './assets/styles/base.scss'
+import {message} from '@/utils/resetMessage';
 
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
+Vue.prototype.$message = message;
 
 new Vue({
   el: '#app',

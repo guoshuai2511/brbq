@@ -11,7 +11,7 @@
                 :options="geoOption"
                 :flat="false"
                 :default-expand-level="1"
-                placeholder="请选择"
+                placeholder="晋城市"
                 v-model="geoData"
               ></treeselect>
             </div>
@@ -85,8 +85,16 @@
               res+=''+params[0].data[params[0].seriesName]+ '</p>';
               return res;
               delete by guoshuai end 2020-5-25*/
-              let res = '<p>' + '已搬迁户数：'+ params[0].data[params[0].seriesName] + ' 户' + '<br/>' +
-               '已搬迁人数：'+  params[0].data[ 'ybqr'] + ' 人'+ '</p>';
+              //对数据进行null、undefined、''、NaN判断并处理
+              function dataAbnormalJudgment(val){
+                if(val == null || typeof(val) == 'undefined' || val === ''){
+                  return 0
+                }else{
+                  return val;
+                }
+              }
+              let res = '<p>' + '已搬迁户数：'+ dataAbnormalJudgment(params[0].data[params[0].seriesName]) + ' 户' + '<br/>' +
+               '已搬迁人数：'+  dataAbnormalJudgment(params[0].data[ 'ybqr']) + ' 人'+ '</p>';
               return res;
             },
           },
@@ -317,7 +325,7 @@
       }
     },
     mounted(){
-      this.initData()
+      this.initData();
     }
   }
 </script>
@@ -364,5 +372,9 @@
   }
   /deep/ .vue-treeselect__single-value{
     line-height: 28px !important;
+  }
+  /deep/ .vue-treeselect__placeholder{
+    line-height: 28px !important;
+    color:#000;
   }
 </style>

@@ -62,7 +62,9 @@
         }
 
         //将当前菜单id存入全局变量中
-        this.$store.dispatch('user/setMenuIdAct', elem.$el.id);
+        this.$store.dispatch('user/setMenuIdAct', elem.$el.id); //含异步操作，数据提交至 actions ，可用于向后台提交数据
+        //commit 同步操作，数据提交至 mutations ，可用于登录成功后读取用户信息写到缓存里
+        //这里选择想要展示页面id，保存id至全局变量，然后通过router展示想要展示的页面
       },
     },
   }

@@ -50,7 +50,7 @@
               newPassword: "",
               confirmPassword:"",
             },
-            rules: {
+            rules: { //element库自带验证密码的方法rules
               oldPassword: [
                 { required: true, message: '请输入旧密码', trigger: 'blur' },
                 { min: 6, max: 15, message: '长度在 6 到 15 个字符', trigger: 'blur' }
@@ -88,7 +88,7 @@
 
           },
         dialogHide(){
-            this.$emit("pwdDialogHide")
+            this.$emit("pwdDialogHide") //$emit向父组件传值，后面可添加data
         }
       }
     }

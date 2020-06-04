@@ -24,7 +24,7 @@ export default {
       let xzqhdm = this.$store.state.user.userInfo.xzqhdm;
       if(xzqhdm !== ""||xzqhdm !== undefined){
         let param = {xzqhdm: xzqhdm};
-        this.geoData = this.$store.state.user.userInfo.xzqhdm;
+        this.geoData = null; // 初始值给null否则会出现1405（known）现象
         getAreaList(param).then(res => {
           if (res.status) {
             this.geoOption = res.result;
